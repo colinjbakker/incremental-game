@@ -6,13 +6,25 @@
 	<body>
 		<div id="resources">
 			<span class="stat">Stat: <span id="statText">0</span></span>
-			<span class="statBuildings">Stat buildings: <span id="statBuildingText">0</span></span>
-
+			<span class="population">Population <span id="popText">0</span></span>
+			<span class="food">Food: <span id="foodText">0</span></span>
+			<span class="crops">Crops: <span id="cropText">0</span></span>
 		</div>
+
+		<div id="buildings">
+			<span class="statBuildings">Stat buildings: <span id="statBuildingText">0</span></span>
+			<span class="foodFactorys">Food Factory: <span id="ffText">0</span></span>
+			<span class="farms">Farms: <span id="farmText">0</span></span>
+		</div>
+
 		<div id="controls">
 			<button id="statButton">Increase Stat</button>
 			<button id="statBuildingButton">Buy Stat Building</button>
+			<button id="buildFoodFactory">Build Food Factory</button>
+			<button id="buildFarm">Build Farm</button>
 		</div>
 		<script src="./script.js"></script>
+		<script src="./resources.js"></script>
+		<script src="./buildings.js"></script>
 	</body>
 </html>
