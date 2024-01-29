@@ -1,11 +1,6 @@
 let last_time = null;
 let total_time = 0;
 
-let population = 10000;
-let unemployed = population;
-
-const popText = document.querySelector("#popText");
-
 setInterval(function gameLoop() {
 	const current_time = performance.now();
 	if(last_time === null) {
@@ -20,9 +15,9 @@ setInterval(function gameLoop() {
 
 function updateGame(delta_time, total_time) {
 	updateResourceValues(delta_time, total_time);
+	updatePopulation(delta_time);
 	updateResourceText();
 	updateBuildingText();
-	
-	popText.innerText = population;
+	updatePopText();
 }
 

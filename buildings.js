@@ -7,7 +7,7 @@ let buildings = [
 	{
 		name: "food factory",
 		value: 0,
-		perMS: 0.001
+		perMS: 0.01
 	}
 ];
 //calculate change in resource amount

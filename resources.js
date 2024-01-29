@@ -1,14 +1,15 @@
 let resources = [
 	{
 		name: "crop",
-		value: 100
+		value: 1000
 	},
 	{
 		name: "food",
-		value: 150
+		value: 1000
 	}
 
 ];
+const food_consumption_rate = 0.00001;
 const cropText = document.querySelector("#cropText");
 const foodText = document.querySelector("#foodText");
 
@@ -33,10 +34,17 @@ function updateResourceText() {
 
 function calculateFood(delta_time) {
 	let dfood = getBuildingEffect(1) * getBuildingValue(1) * delta_time;
+
 	if(resources[0].value < dfood){
 		dfood = resources[0].value;
 		console.log(dfood);
 	}
-	resources[1].value += dfood;
 	resources[0].value -= dfood;
+
+	dfood -= getPopulation().total * delta_time * food_consumption_rate;
+	if(resources[1].value + dfood < 0){
+		resources[1].value = 0;
+	} else {
+		resources[1].value += dfood;
+	}
 }
