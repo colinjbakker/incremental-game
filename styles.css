@@ -1,0 +1,23 @@
+#resources {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+#buildings {
+	position: absolute;
+	top: 0px;
+	left: 300px;
+}
+.buildingText{
+	width: 150px;
+}
+
+li {
+	display: flex;
+	justify-content: space-between;
+	width: 600px;
+}
+

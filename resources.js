@@ -9,7 +9,7 @@ let resources = [
 	}
 
 ];
-const food_consumption_rate = 0.00001;
+const food_consumption_rate = 0.000005;
 const cropText = document.querySelector("#cropText");
 const foodText = document.querySelector("#foodText");
 

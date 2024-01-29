@@ -17,6 +17,7 @@ function updateGame(delta_time, total_time) {
 	updateResourceValues(delta_time, total_time);
 	updatePopulation(delta_time);
 	updateResourceText();
+	updateBuildings();
 	updateBuildingText();
 	updatePopText();
 }

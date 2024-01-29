@@ -1,4 +1,4 @@
-let population = {total: 10000, unemployed: 10000, growthRate: 0.0001};
+let population = {total: 1000, unemployed: 1000, growthRate: 0.0001};
 //calculate new population
 //return values
 //calculate growth and shrink rate
