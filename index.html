@@ -6,7 +6,12 @@
 	</head>
 	<body>
 		<div id="resources">
-			<span class="population">Population <span id="popText">0</span></span>
+			<span class="population">Population: <span id="popText">0</span>
+				<ul>
+					<li><span>Unemployed: <span id="unemployedText">0</span></span></li>
+					<li><span>Homeless: <span id="homelessText">0</span></span></li>
+				</ul>
+			</span>
 			<span class="crops">Crops: <span id="cropText">0</span></span>
 			<span class="food">Food: <span id="foodText">0</span></span>
 		</div>
@@ -14,13 +19,13 @@
 
 		<ul id="buildings">
 			<li>
-				<div><span>Workers: <span id="farmWorkers">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="farmSlider"/></div>
+				<div><span>Workers: <span id="farmWorkers">0</span> / <span id="desiredFarmWorkers">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="farmSlider"/></div>
 				<button class="buildingButton" id="buildFarm">Build Farm</button>
 				<span class="buildingText">Farms: <span id="farmText">0</span></span>
 
 			</li>
 			<li>
-				<div><span>Workers: <span id="ffWorkers">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="ffSlider"/></div>
+				<div><span>Workers: <span id="ffWorkers">0</span> / <span id="desiredFFWorkers">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="ffSlider"/></div>
 				<button class="buildingButton" id="buildFoodFactory">Build Food Factory</button>
 				<span class="buildingText">Food Factory: <span id="ffText">0</span></span>
 			</li>

@@ -4,7 +4,8 @@ let population = {total: 1000, unemployed: 1000, growthRate: 0.0001};
 //calculate growth and shrink rate
 //display values
 const popText = document.querySelector("#popText");
-
+const unemployedText = document.querySelector("#unemployedText");
+const homelessText = document.querySelector("#homelessText");
 function getPopulation() {
 	return population;
 }
@@ -18,6 +19,7 @@ function updatePopulation(delta_time) {
 
 function updatePopText() {
 	popText.innerText = population.total.toFixed(0);
+	unemployedText.innerText = population.unemployed.toFixed(0);
 }
 
 function calculateRates() {

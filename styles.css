@@ -15,9 +15,16 @@
 	width: 150px;
 }
 
-li {
+#buildings li {
 	display: flex;
 	justify-content: space-between;
 	width: 600px;
 }
+.population ul {
+	margin: 0;
+	padding: 0 10px;
+}
+.population li {
+	display: flex;
+}	
 
