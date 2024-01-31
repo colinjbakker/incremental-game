@@ -48,3 +48,4 @@ function calculateFood(delta_time) {
 		resources[1].value += dfood;
 	}
 }
+

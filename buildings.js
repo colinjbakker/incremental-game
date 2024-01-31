@@ -95,4 +95,3 @@ function updateBuildingText() {
 	desiredFFWorkerText.innerText = buildings[1].desiredWorkers;
 }
 
-
