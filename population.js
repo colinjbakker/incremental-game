@@ -1,8 +1,6 @@
 let population = {total: 1000, unemployed: 1000, growthRate: 0.0001};
-//calculate new population
-//return values
-//calculate growth and shrink rate
-//display values
+//TODO
+//Housing and other needs, better calculation for pop change
 const popText = document.querySelector("#popText");
 const unemployedText = document.querySelector("#unemployedText");
 const homelessText = document.querySelector("#homelessText");
@@ -25,5 +23,5 @@ function updatePopText() {
 }
 
 function calculateRates() {
-	population.growthRate = (getResourceValue(1) > 0) ? 0.000001 : -0.000001;
+	population.growthRate = (getResourceValue(2) > 0) ? 0.000001 : -0.000001;
 }

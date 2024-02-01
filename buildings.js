@@ -14,6 +14,10 @@ let buildings = [
 		desiredWorkers: 0
 	}
 ];
+//TODO
+//Building cost for construction
+//more buildings
+
 const farmButton = document.querySelector("#buildFarm");
 const ffButton = document.querySelector("#buildFoodFactory");
 
