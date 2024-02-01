@@ -13,7 +13,9 @@ function getPopulation() {
 function updatePopulation(delta_time) {
 	calculateRates();
 	//console.log(population.growthRate * population.total * delta_time);
-	population.total += (population.growthRate * population.total * delta_time);
+	let pplGrowth = population.growthRate * population.total * delta_time;
+	population.total += pplGrowth;
+	population.unemployed += pplGrowth;
 
 }
 

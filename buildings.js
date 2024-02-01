@@ -33,21 +33,17 @@ const desiredFFWorkerText = document.getElementById("desiredFFWorkers");
 
 farmWorkerInput.addEventListener("change", function() {
 	buildings[0].desiredWorkers = farmWorkerInput.value;
-	updateBuildings();
 });
 
 foodFactoryWorkerInput.addEventListener("change", function() {
 	buildings[1].desiredWorkers = foodFactoryWorkerInput.value;
-	updateBuildings();
 });
 
 farmButton.addEventListener("click", function(){
 	buildings[0].value++;
-	updateBuildings();
 });
 ffButton.addEventListener("click", function(){
 	buildings[1].value++
-	updateBuildings();
 });
 
 function getBuildingValue(index) {
@@ -71,19 +67,27 @@ function updateBuildings() {
 }
 
 function updateWorkers() {
-	let availablePop = Number(getPopulation().total);
-	for(let i = 0; i < buildings.length; i++){
-		if(availablePop > buildings[i].desiredWorkers){
+
+	//send new workers to open slots or to unemployed
+	for(let i = 0; i < buildings.length; i++{
+		if(buildings[i].workers < buildings[i].desiredWorkers){
+			//try to give workers
+			if(getPopulation().unemployed >= buildings[i].desiredWorkers - buildings[i].workers){
+				//More unemployed than worker slots
+				getPopulation().unemployed -= buildings[i].desiredWorkers - buildings[i].workers;
+				buildings[i].workers = building[i].desiredWorkers; 
+			} else{
+				//less unemployed than worker slots
+				buildings[i].workers += getPopulation().unemployed;
+				getPopulation().unemployed = 0;
+			}
+		} else if (buildings[i].workers > buildings[i].desiredWorkers){
+			//remove excess and add to unemployed
+			getPopulation().unemployed += buildings[i].workers - buildings[i].desiredWorkers;
 			buildings[i].workers = buildings[i].desiredWorkers;
-			availablePop -= buildings[i].desiredWorkers;
-		}
-		else {
-			buildings[i].workers = availablePop;
-			availablePop = 0;
-			break;
 		}
 	}
-	getPopulation().unemployed = availablePop;
+	updateBuildings();
 }
 
 function updateBuildingText() {
