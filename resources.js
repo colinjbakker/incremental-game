@@ -10,8 +10,11 @@ let resources = [
 
 ];
 const food_consumption_rate = 0.000005;
-const cropText = document.querySelector("#cropText");
-const foodText = document.querySelector("#foodText");
+
+const resourceText = [
+	document.getElementById("cropText"),
+	document.getElementById("foodText"),
+];
 
 function getResourceValue(index) {
 	return resources[index].value;
@@ -27,9 +30,9 @@ function updateResourceValues(delta_time, total_time) {
 }
 
 function updateResourceText() {
-	//called in index.js
-	cropText.innerText = resources[0].value.toFixed(2);
-	foodText.innerText = resources[1].value.toFixed(2);
+	resourceText.forEach((element, index) => {
+		element.innerText = resources[index].value.toFixed(2);
+	});
 }
 
 function calculateFood(delta_time) {

@@ -14,22 +14,27 @@ let buildings = [
 		desiredWorkers: 0
 	}
 ];
-//calculate change in resource amount
-//build new buildings
-//update display
-//return values
 const farmButton = document.querySelector("#buildFarm");
 const ffButton = document.querySelector("#buildFoodFactory");
 
-const farmText = document.querySelector("#farmText");
-const foodFactoryText = document.querySelector("#ffText");
-
 const foodFactoryWorkerInput = document.getElementById("ffSlider");
-const ffWorkerText = document.getElementById("ffWorkers");
 const farmWorkerInput = document.getElementById("farmSlider");
-const farmWorkerText = document.getElementById("farmWorkers");
-const desiredFarmWorkerText = document.getElementById("desiredFarmWorkers");
-const desiredFFWorkerText = document.getElementById("desiredFFWorkers");
+
+const buildingText = [
+	document.getElementById("farmText"),
+	document.getElementById("ffText"),
+];
+
+const buildingWorkerText = [
+	document.getElementById("farmWorkers"),
+	document.getElementById("ffWorkers"),
+];
+
+const buildingDesiredWorkerText = [
+	document.getElementById("desiredFarmWorkers"),
+	document.getElementById("desiredFFWorkers"),
+];
+
 
 farmWorkerInput.addEventListener("change", function() {
 	buildings[0].desiredWorkers = farmWorkerInput.value;
@@ -72,9 +77,7 @@ function updateWorkers() {
 			//try to give workers
 			if(getPopulation().unemployed >= buildings[i].desiredWorkers - buildings[i].workers){
 				//More unemployed than worker slots
-				console.log("unemployed1: " , getPopulation().unemployed , buildings[i].desiredWorkers, buildings[i].workers);
 				getPopulation().unemployed -= buildings[i].desiredWorkers - buildings[i].workers;
-				console.log("unemployed: " , getPopulation().unemployed);
 				buildings[i].workers = Number(buildings[i].desiredWorkers); 
 			} else{
 				//less unemployed than worker slots
@@ -91,12 +94,14 @@ function updateWorkers() {
 }
 
 function updateBuildingText() {
-	farmText.innerText = buildings[0].value;
-	ffText.innerText = buildings[1].value;
-	console.log(typeof buildings[0].value);
-	farmWorkerText.innerText = buildings[0].workers.toFixed(0);
-	ffWorkerText.innerText = buildings[1].workers.toFixed(0);
-	desiredFarmWorkerText.innerText = buildings[0].desiredWorkers;
-	desiredFFWorkerText.innerText = buildings[1].desiredWorkers;
+	buildingText.forEach((element, index) => {
+		element.innerText = buildings[index].value;
+	});
+	buildingWorkerText.forEach((element, index) => {
+		element.innerText = buildings[index].workers.toFixed(0);
+	});
+	buildingDesiredWorkerText.forEach((element, index) => {
+		element.innerText = buildings[index].desiredWorkers;
+	});
 }
 
