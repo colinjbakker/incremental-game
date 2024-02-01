@@ -11,7 +11,7 @@ setInterval(function gameLoop() {
 	last_time = current_time;
 
 	updateGame(delta_time, total_time);
-}, 1000/60);
+}, 1000/10);
 
 function updateGame(delta_time, total_time) {
 	updateResourceValues(delta_time, total_time);

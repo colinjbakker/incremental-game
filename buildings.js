@@ -58,10 +58,8 @@ function getBuildingWorkers(index) {
 }
 
 function updateBuildings() {
-	console.log("update buildings");
 	buildings[0].perMS = (buildings[0].value == 0) ? 0 : 0.001 * (buildings[0].workers / (buildings[0].value * 100));
 	buildings[1].perMS = (buildings[1].value == 0) ? 0 : 0.01 * (buildings[1].workers / (buildings[1].value * 100));
-	console.log("farm: ", buildings[0].perMS, " ff: ",buildings[1].perMS);
 	farmWorkerInput.setAttribute("max" , buildings[0].value * 100);
 	foodFactoryWorkerInput.setAttribute("max", buildings[1].value * 100);
 }
@@ -69,22 +67,24 @@ function updateBuildings() {
 function updateWorkers() {
 
 	//send new workers to open slots or to unemployed
-	for(let i = 0; i < buildings.length; i++{
+	for(let i = 0; i < buildings.length; i++){
 		if(buildings[i].workers < buildings[i].desiredWorkers){
 			//try to give workers
 			if(getPopulation().unemployed >= buildings[i].desiredWorkers - buildings[i].workers){
 				//More unemployed than worker slots
+				console.log("unemployed1: " , getPopulation().unemployed , buildings[i].desiredWorkers, buildings[i].workers);
 				getPopulation().unemployed -= buildings[i].desiredWorkers - buildings[i].workers;
-				buildings[i].workers = building[i].desiredWorkers; 
+				console.log("unemployed: " , getPopulation().unemployed);
+				buildings[i].workers = Number(buildings[i].desiredWorkers); 
 			} else{
 				//less unemployed than worker slots
-				buildings[i].workers += getPopulation().unemployed;
+				buildings[i].workers += Number(getPopulation().unemployed);
 				getPopulation().unemployed = 0;
 			}
 		} else if (buildings[i].workers > buildings[i].desiredWorkers){
 			//remove excess and add to unemployed
 			getPopulation().unemployed += buildings[i].workers - buildings[i].desiredWorkers;
-			buildings[i].workers = buildings[i].desiredWorkers;
+			buildings[i].workers = Number(buildings[i].desiredWorkers);
 		}
 	}
 	updateBuildings();
@@ -93,8 +93,9 @@ function updateWorkers() {
 function updateBuildingText() {
 	farmText.innerText = buildings[0].value;
 	ffText.innerText = buildings[1].value;
-	farmWorkerText.innerText = Number(buildings[0].workers).toFixed(0);
-	ffWorkerText.innerText = Number(buildings[1].workers).toFixed(0);
+	console.log(typeof buildings[0].value);
+	farmWorkerText.innerText = buildings[0].workers.toFixed(0);
+	ffWorkerText.innerText = buildings[1].workers.toFixed(0);
 	desiredFarmWorkerText.innerText = buildings[0].desiredWorkers;
 	desiredFFWorkerText.innerText = buildings[1].desiredWorkers;
 }
