@@ -1,48 +1,29 @@
 let resources = [
-	{
-		name: "money",
-		value: 1000,
-	},
-	{
-		name: "crop",
-		value: 1000,
-		price: 5
-	},
-	{
-		name: "food",
-		value: 1000,
-		price: 50
-	},
-	{
-		name: "wood",
-		value: 0,
-		price: 4
-	},
-	{
-		name: "stone",
-		value: 0,
-		price: 6
-	},
-	{
-		name: "concrete",
-		value: 0,
-		price: 60
-	},
-	{
-		name: "iron",
-		value: 0,
-		price: 10
-	},
-	{
-		name: "coal",
-		value: 0,
-		price: 8
-	},
-	{
-		name: "steel",
-		value: 0,
-		price: 400
-	}
+	{name: "money", value: 1000},
+	{name: "crop", value: 1000, price: 5},
+	{name: "food", value: 1000, price: 50},
+	{name: "wood", value: 0, price: 4},
+	{name: "stone", value: 0, price: 1},
+	{name: "iron ore", value: 0, price: 10},
+	{name: "copper ore", value: 0, price: 10},
+	{name: "coal", value: 0, price: 8},
+	{name: "crude oil", value: 0, price: 20},
+	{name: "iron", value: 0, price: 15},
+	{name: "processed wood", value: 0, price: 8},
+	{name: "copper", value: 0, price: 15},
+	{name: "steel", value: 0, price: 400},
+	{name: "processed stone", value: 0, price: 2},
+	{name: "masonry", value: 0, price: 4},
+	{name: "glass", value: 0, price: 10},
+	{name: "cement", value: 0, price: 15},
+	{name: "concrete", value: 0, price: 20},
+	{name: "textile", value: 0, price: 15},
+	{name: "clothing", value: 0, price: 50},
+	{name: "furniture", value: 0, price: 50},
+	{name: "chemicals", value: 0, price: 25},
+	{name: "plastic", value: 0, price: 40},
+	{name: "semiconductor", value: 0, price: 60},
+	{name: "electronics", value: 0, price: 200}
 ];
 //TODO
 //Buy and sell resources, autobuy deficit or set target amount to buy/sell to reach

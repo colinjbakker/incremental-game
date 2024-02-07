@@ -3,6 +3,7 @@
 	<head>
 		<title>Incremental Game</title>
 		<link rel="stylesheet" href="./styles.css"/>
+		<link rel="shortcut icon" href="./images/favicon.ico"/>`
 	</head>
 	<body>
 		<div id="resources">
@@ -13,30 +14,91 @@
 				</ul>
 			</span>
 			<span class="money">Roubles: ₽<span id="moneyText">0</span></span>
-			<span class="crops">Crops: <span id="cropText">0</span></span>
+			<span class="crop">Crops: <span id="cropText">0</span></span>
 			<span class="food">Food: <span id="foodText">0</span></span>
-		</div>
-		
-
+			<span class="wood">Wood: <span id="woodText">0</span></span>
+			<span class="stone">Stone: <span id="stoneText">0</span></span>
+			<span class="iron ore">Iron Ore: <span id="ironOreText">0</span></span>
+			<span class="copper ore">Copper Ore: <span id="coalOreText">0</span></span>
+			<span class="coalOre">Coal Ore: <span id="coalOreText">0</span></span>
+			<span class="plank">Planks: <span id="plankText">0</span></span>
+			<span class="gravel">Gravel: <span id="gravelText">0</span></span>
+			<span class="iron">Iron: <span id="ironText">0</span></span>
+			<span class="coal">Coal: <span id="coalText">0</span></span>
+			<span class="steel">Steel: <span id="steelText">0</span></span>
+		</div>		
 		<ul id="buildings">
 			<li>
-				<div><span>Workers: <span id="farmWorkers">0</span> / <span id="desiredFarmWorkers">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="farmSlider"/></div>
-				<button class="buildingButton" id="buildFarm">Build Farm</button>
+				<div><span>Workers: <span id="farmWorkers">0</span> / <span id="farmWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="farmSlider"/></div>
+				<button class="buildingButton" id="farmBuildButton">Build</button>
 				<span class="buildingText">Farms: <span id="farmText">0</span></span>
 
 			</li>
-			<li>
-				<div><span>Workers: <span id="ffWorkers">0</span> / <span id="desiredFFWorkers">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="ffSlider"/></div>
-				<button class="buildingButton" id="buildFoodFactory">Build Food Factory</button>
-				<span class="buildingText">Food Factory: <span id="ffText">0</span></span>
-			</li>
-			
-		</ul>
 
-		<script src="./script.js"></script>
-		<script src="./resources.js"></script>
-		<script src="./buildings.js"></script>
-		<script src="./population.js"></script>
+			<li>
+				<div><span>Workers: <span id="foodFactoryWorkers">0</span> / <span id="foodFactoryWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="foodFactorySlider"/></div>
+				<button class="buildingButton" id="foodFactoryBuildButton">Build</button>
+				<span class="buildingText">Food Factory: <span id="foodFactoryText">0</span></span>
+			</li>
+
+			<li>
+				<div><span>Workers: <span id="lumberCampWorkers">0</span> / <span id="lumberCampWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="lumberCampSlider"/></div>
+				<button class="buildingButton" id="lumberCampBuildButton">Build</button>
+				<span class="buildingText">Lumber Camp: <span id="lumberCampText">0</span></span>
+			</li>
+
+			<li>
+				<div><span>Workers: <span id="quarryWorkers">0</span> / <span id="quarryWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="quarrySlider"/></div>
+				<button class="buildingButton" id="quarryBuildButton">Build</button>
+				<span class="buildingText">Quarry: <span id="quarryText">0</span></span>
+			</li>
+
+			<li>
+				<div><span>Workers: <span id="ironMineWorkers">0</span> / <span id="ironMineWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="ironMineSlider"/></div>
+				<button class="buildingButton" id="ironMineBuildButton">Build</button>
+				<span class="buildingText">Iron Mine: <span id="ironMineText">0</span></span>
+			</li>
+
+
+			<li>
+				<div><span>Workers: <span id="coalMineWorkers">0</span> / <span id="coalMineWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="coalMineSlider"/></div>
+				<button class="buildingButton" id="coalMineBuildButton">Build</button>
+				<span class="buildingText">Coal Mine: <span id="coalMineText">0</span></span>
+			</li>
+
+			<li>
+				<div><span>Workers: <span id="sawmillWorkers">0</span> / <span id="sawmillWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="sawmillSlider"/></div>
+				<button class="buildingButton" id="sawmillBuildButton">Build</button>
+				<span class="buildingText">Sawmill: <span id="sawmillText">0</span></span>
+			</li>
+
+			<li>
+				<div><span>Workers: <span id="stoneProcessingPlantWorkers">0</span> / <span id="stoneProcessingPlantWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="stoneProcessingPlantSlider"/></div>
+				<button class="buildingButton" id="stoneProcessingPlantBuildButton">Build</button>
+				<span class="buildingText">Stone Processing Plant: <span id="stoneProcessingPlantText">0</span></span>
+			</li>
+
+
+			<li>
+				<div><span>Workers: <span id="oreProcessingPlantWorkers">0</span> / <span id="oreProcessingPlantWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="oreProcessingPlantSlider"/></div>
+				<button class="buildingButton" id="oreProcessingPlantBuildButton">Build</button>
+				<span class="buildingText">Ore Processing Plant: <span id="oreProcessingPlantText">0</span></span>
+			</li>
+
+			<li>
+				<div><span>Workers: <span id="steelMillWorkers">0</span> / <span id="steelMillWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="steelMillSlider"/></div>
+				<button class="buildingButton" id="steelMillBuildButton">Build</button>
+				<span class="buildingText">Steel Mill: <span id="steelMillText">0</span></span>
+			</li>
+		</ul>
+		<script type="module" src="main.js"></script>
+		<!--
+		<script src="script.js"></script>
+		<script src="resources.js"></script>
+		<script src="buildings.js"></script>
+		<script src="population.js"></script>
+		-->
+		
 	</body>
 </html>
 

@@ -1,3 +1,4 @@
+
 let last_time = null;
 let total_time = 0;
 
@@ -14,6 +15,11 @@ setInterval(function gameLoop() {
 }, 1000/10);
 
 function updateGame(delta_time, total_time) {
+	//update population
+	//add or remove new buildings
+	//assign workers
+	//
+
 	updateResourceValues(delta_time, total_time);
 	updatePopulation(delta_time);
 	updateResourceText();
