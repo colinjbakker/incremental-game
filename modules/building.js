@@ -47,7 +47,7 @@ class Building {
 	}
  
 	handleWorkerSlider() {
-		this._desiredWorkers = this._buttonBuild.value;
+		this._desiredWorkers = Number(this._workerSlider.value);
 	}
 
 	build() {
@@ -59,10 +59,9 @@ class Building {
 
 	updateBuildingText() {
 		this._text.innerText = this._quantity;
-		this._workerText.innerText = this._actualWorkers;
-		this._desiredWorkerText.innerText = this._maxWorkers;
+		this._workerText.innerText = this._actualWorkers.toFixed(0);
+		this._desiredWorkerText.innerText = this._maxWorkers.toFixed(0);
 	}
-
 }
 
 export { Building }

@@ -90,27 +90,38 @@ function updateBuildings() {
 
 function assignWorkers() {
 	for (let i = 0; i < buildings.length; i++) {
-		//unemployed is negative, take workers
-		//desired workers is greater than actual workers
-		//	unemployed is greater than desired workers
-		//	unemployes is less than desired workers
-		//desired workers is lower than actual workers
-		
-		//if desired workers == actual workers do nothing
-		if(population.totalUnemployed < 0){
+		let workerDiff = buildings[i].desiredWorkers - buildings[i].actualWorkers;
 
-		} else {
-			if(buildings[i].desiredWorkers > buildings[i].actualWorkers){
-				if(buildings[i].
+		if((population.totalUnemployed > 0) || (workerDiff < 0)) {
+			if((population.totalUnemployed >= workerDiff) || (workerDiff < 0)) {
+				buildings[i].actualWorkers += workerDiff;
+				population.totalUnemployed -= workerDiff;
 			} else {
-
+				buildings[i].actualWorkers += population.totalUnemployed;
+				population.totalUnemployed = 0;
 			}
 		}
 	}
 }
 
 function produceResources(delta_time) {
-	
+	let productionAmount = 0;
+	if(farm.actualWorkers > 0){
+		productionAmount = (farm.actualWorkers/farm.maxWorkers) * delta_time * farm.quantity * (1/1000);
+		crop.quantity += productionAmount;
+	}
+
+	if(foodFactory.actualWorkers > 0){
+		productionAmount = (foodFactory.actualWorkers/foodFactory.maxWorkers) * delta_time * foodFactory.quantity * (5/1000);
+		if(crop.quantity < 5*productionAmount){
+			food.quantity += crop.quantity * 5;
+			crop.quantity = 0;
+		} else{
+			food.quantity += productionAmount;
+			crop.quantity -= 5*productionAmount;
+		}
+	}
+
 }
 
 function updateText() {
