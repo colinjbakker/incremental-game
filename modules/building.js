@@ -25,7 +25,7 @@ class Building {
 		this._workerSlider.addEventListener('change', this.handleWorkerSlider.bind(this));	
 	}
 	
-	//getter
+	//getter will clean out once done implementing features
 	get name() { return this._name; }
 	get quantity() { return this._quantity; }
 	get maxWorkers() { return this._maxWorkers; }
@@ -51,6 +51,7 @@ class Building {
 	}
 
 	build() {
+		//currently just set to 0, will change to -- in future I presume
 		this._desiredNewBuildings = 0;
 		this._quantity ++;
 		this._maxWorkers += 100;

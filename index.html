@@ -19,7 +19,6 @@
 			<span class="wood">Wood: <span id="woodText">0</span></span>
 			<span class="stone">Stone: <span id="stoneText">0</span></span>
 			<span class="iron ore">Iron Ore: <span id="ironOreText">0</span></span>
-			<span class="copper ore">Copper Ore: <span id="coalOreText">0</span></span>
 			<span class="coalOre">Coal Ore: <span id="coalOreText">0</span></span>
 			<span class="plank">Planks: <span id="plankText">0</span></span>
 			<span class="gravel">Gravel: <span id="gravelText">0</span></span>
@@ -80,10 +79,17 @@
 
 
 			<li>
-				<div><span>Workers: <span id="oreProcessingPlantWorkers">0</span> / <span id="oreProcessingPlantWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="oreProcessingPlantSlider"/></div>
-				<button class="buildingButton" id="oreProcessingPlantBuildButton">Build</button>
-				<span class="buildingText">Ore Processing Plant: <span id="oreProcessingPlantText">0</span></span>
+				<div><span>Workers: <span id="ironOreProcessingPlantWorkers">0</span> / <span id="ironOreProcessingPlantWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="ironOreProcessingPlantSlider"/></div>
+				<button class="buildingButton" id="ironOreProcessingPlantBuildButton">Build</button>
+				<span class="buildingText">Iron Ore Processing Plant: <span id="ironOreProcessingPlantText">0</span></span>
 			</li>
+
+			<li>
+				<div><span>Workers: <span id="coalOreProcessingPlantWorkers">0</span> / <span id="coalOreProcessingPlantWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="coalOreProcessingPlantSlider"/></div>
+				<button class="buildingButton" id="coalOreProcessingPlantBuildButton">Build</button>
+				<span class="buildingText">Coal Ore Processing Plant: <span id="coalOreProcessingPlantText">0</span></span>
+			</li>
+
 
 			<li>
 				<div><span>Workers: <span id="steelMillWorkers">0</span> / <span id="steelMillWorkersDesired">0</span></span><input type="range" min="0" max="0" value="0" class="buildingSlider" id="steelMillSlider"/></div>
