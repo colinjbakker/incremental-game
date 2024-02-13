@@ -1,12 +1,15 @@
 class Building {
-	constructor(name, quantity = 0, maxWorkers = 0, actualWorkers = 0, desiredWorkers = 0) {
+	constructor(name, buildResources, buildQuantities) {
 		this._name = name;
-		this._quantity = quantity;
-		this._maxWorkers = maxWorkers;
-		this._actualWorkers = actualWorkers;
-		this._desiredWorkers = desiredWorkers;
-		this._desiredNewBuildings = 0;
+		this._buildResources = buildResources;
+		this._buildQuantities = buildQuantities;
 
+		this._quantity = 0;
+		this._maxWorkers = 0;
+		this._actualWorkers = 0;
+		this._desiredWorkers = 0;
+		this._desiredNewBuildings = 0;
+		
 		//text elements
 		this._textId = this._name + "Text";
 		this._text = document.getElementById(this._textId);
@@ -32,7 +35,8 @@ class Building {
 	get actualWorkers() { return this._actualWorkers; }
 	get desiredWorkers() { return this._desiredWorkers; }
 	get desiredNewBuildings() { return this._desiredNewBuildings; }
-
+	get buildResources() { return this._buildResources; }
+	get buildQuantities() { return this._buildQuantities; }
 
 	//setter
 	set name(newName) { this._name = newName; }
@@ -41,9 +45,11 @@ class Building {
 	set actualWorkers(newActualWorkers) { this._actualWorkers = newActualWorkers; }
 	set desiredWorkers(newDesiredWorkers) { this._desiredWorkers = newDesiredWorkers; }
 	set desiredNewBuildings(newDesiredNewBuildings) { this._desiredNewBuildings = newDesiredNewBuildings; }
-	
+	set buildResources(newBuildResources) { this._buildResources = newBuildResources; }
+	set buildQuantities(newBuildQuantities) { this._buildQuantities = newBuildQuantities; }
+
 	handleBuildButton() {
-		this._desiredNewBuildings = 1;
+		this._desiredNewBuildings++;
 	}
  
 	handleWorkerSlider() {
@@ -52,7 +58,17 @@ class Building {
 
 	build() {
 		//currently just set to 0, will change to -- in future I presume
-		this._desiredNewBuildings = 0;
+		for(let i = 0; i < this._buildResources.length; i++){
+			if(this._buildResources[i].quantity < this._buildQuantities[i]){
+				console.log("insufficient resources");
+				this._desiredNewBuildings--;
+				return;
+			}
+		}
+		for(let i = 0; i < this._buildResources.length; i++){
+			this._buildResources[i].quantity -= this._buildQuantities[i];
+		}
+		this._desiredNewBuildings--;
 		this._quantity ++;
 		this._maxWorkers += 100;
 		this._workerSlider.setAttribute("max", this._maxWorkers);

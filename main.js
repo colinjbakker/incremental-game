@@ -8,25 +8,25 @@ const wood = new Resource("wood", 0.0, 2.0);
 const stone = new Resource("stone", 0.0, 1.0);
 const ironOre = new Resource("ironOre", 0.0, 5.0);
 const coalOre = new Resource("coalOre", 0.0, 4.0);
-const plank = new Resource("plank" , 0.0, 4.0);
-const gravel = new Resource("gravel", 0.0, 2.0); 
+const plank = new Resource("plank" , 100.0, 4.0);
+const gravel = new Resource("gravel", 100.0, 2.0); 
 const iron = new Resource("iron", 0.0, 10.0);
 const coal = new Resource("coal", 0.0, 8.0);
-const steel = new Resource("steel", 0.0, 40.0);
+const steel = new Resource("steel", 100.0, 40.0);
 
 const resources = [crop, food, wood, stone, ironOre, coalOre, plank, gravel, iron, coal, steel];
 
-const farm = new Building("farm");
-const foodFactory = new Building("foodFactory");
-const lumberCamp = new Building("lumberCamp");
-const quarry = new Building("quarry");
-const ironMine = new Building("ironMine");
-const coalMine = new Building("coalMine");
-const sawmill = new Building("sawmill");
-const stoneProcessor = new Building("stoneProcessingPlant");
-const ironOreProcessor = new Building("ironOreProcessingPlant");
-const coalOreProcessor = new Building("coalOreProcessingPlant");
-const steelMill = new Building("steelMill");
+const farm = new Building("farm", [plank, gravel, steel], [10, 10, 10]);
+const foodFactory = new Building("foodFactory", [plank, gravel, steel], [10, 10, 10]);
+const lumberCamp = new Building("lumberCamp", [plank, gravel, steel], [10, 10, 10]);
+const quarry = new Building("quarry", [plank, gravel, steel], [10, 10, 10]);
+const ironMine = new Building("ironMine", [plank, gravel, steel], [10, 10, 10]);
+const coalMine = new Building("coalMine", [plank, gravel, steel], [10, 10, 10]);
+const sawmill = new Building("sawmill", [plank, gravel, steel], [10, 10, 10]);
+const stoneProcessor = new Building("stoneProcessingPlant", [plank, gravel, steel], [10, 10, 10]);
+const ironOreProcessor = new Building("ironOreProcessingPlant", [plank, gravel, steel], [10, 10, 10]);
+const coalOreProcessor = new Building("coalOreProcessingPlant", [plank, gravel, steel], [10, 10, 10]);
+const steelMill = new Building("steelMill", [plank, gravel, steel], [10, 10, 10]);
 
 const buildings = [farm, foodFactory, lumberCamp, quarry, ironMine, coalMine, sawmill, stoneProcessor, ironOreProcessor, coalOreProcessor, steelMill];
 
@@ -61,7 +61,9 @@ setInterval(function gameLoop() {
 //sell once they reach that amount
 //every game interval will sell and buy all or set amount of resources to approach the desired stockpile, similar to worker mechanic
 //originally was thinking that buildings could be built with resources or money, but now think that they should only be built with resources
-//and you buy them or produce them manually with this desired resource stockpile mechanic. 
+//and you buy them or produce them manually with this desired resource stockpile mechanic.
+//
+//population needs, food, housing, and others that I think of. 
 
 function updateGame(delta_time, total_time) {
 	//update population
@@ -95,6 +97,7 @@ function updateBuildings() {
 	for (let i = 0; i < buildings.length; i++) {
 		if(buildings[i].desiredNewBuildings > 0) {
 			//add removing resources from stockpile
+
 			buildings[i].build();
 		}
 	}
